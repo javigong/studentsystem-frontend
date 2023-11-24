@@ -2,10 +2,12 @@ import { Button, Container, Paper } from '@mui/material'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import { useState } from 'react'
+import StudentList from './StudentList'
 
 export default function Student() {
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
+  const [updated, setUpdated] = useState(false)
 
   const paperStyle = {
     padding: '50px 20px',
@@ -20,8 +22,9 @@ export default function Student() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(student),
-    }).then(()=>{
-      console.log("New Student has been added")
+    }).then(() => {
+      setUpdated(!updated)
+      console.log('New Student has been added')
     })
   }
 
@@ -61,6 +64,7 @@ export default function Student() {
           </Button>
         </Box>
       </Paper>
+      <StudentList updated={updated} />
     </Container>
   )
 }
