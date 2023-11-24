@@ -1,11 +1,12 @@
 import './App.css'
-import ButtonAppBar from './components/ButtonAppBar'
+import Appbar from './components/Appbar'
+import Student from './components/Student'
 
 function App() {
- 
   return (
     <>
-      <ButtonAppBar />
+      <Appbar />
+      <Student />
     </>
   )
 }
